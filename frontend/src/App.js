@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from './components/ui/toaster';
 import Header from './components/Header';
+import BottomNavigation from './components/BottomNavigation';
 import HomePage from './pages/HomePage';
 import BookingFlow from './pages/BookingFlow';
 import TrackingPage from './pages/TrackingPage';
@@ -16,15 +17,18 @@ function App() {
     <Router>
       <div className="App min-h-screen bg-gray-50">
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/book" element={<BookingFlow />} />
-          <Route path="/track" element={<TrackingPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/driver-partner" element={<DriverPartnerPage />} />
-          <Route path="/support" element={<SupportPage />} />
-        </Routes>
+        <main className="pb-20 md:pb-0">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/book" element={<BookingFlow />} />
+            <Route path="/track" element={<TrackingPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/driver-partner" element={<DriverPartnerPage />} />
+            <Route path="/support" element={<SupportPage />} />
+          </Routes>
+        </main>
+        <BottomNavigation />
         <Toaster />
       </div>
     </Router>
