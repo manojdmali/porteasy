@@ -104,8 +104,16 @@ const HomePage = () => {
   };
 
   const handleGetEstimate = () => {
-    const state = selectedService ? { selectedService, city: selectedCity } : { city: selectedCity };
-    navigate('/book', { state });
+    // Create a plain object to avoid cloning issues
+    const navigationState = {
+      selectedService: selectedService ? {
+        id: selectedService.id,
+        name: selectedService.name,
+        description: selectedService.description
+      } : null,
+      city: selectedCity
+    };
+    navigate('/book', { state: navigationState });
   };
 
   return (
