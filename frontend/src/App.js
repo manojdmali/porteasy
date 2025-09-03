@@ -9,6 +9,7 @@ import TrackingPage from './pages/TrackingPage';
 import ProfilePage from './pages/ProfilePage';
 import HistoryPage from './pages/HistoryPage';
 import DriverPartnerPage from './pages/DriverPartnerPage';
+import DriverOrdersPage from './pages/DriverOrdersPage';
 import SupportPage from './pages/SupportPage';
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/driver-partner" element={<DriverPartnerPage />} />
+            <Route path="/driver-orders" element={<DriverOrdersPage />} />
             <Route path="/support" element={<SupportPage />} />
           </Routes>
         </main>

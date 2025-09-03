@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin, User, History, Headphones, Bell } from 'lucide-react';
+import { Menu, X, MapPin, User, History, Headphones, Bell, Truck } from 'lucide-react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
@@ -14,6 +14,11 @@ const Header = () => {
     { name: 'History', path: '/history', icon: History },
     { name: 'Profile', path: '/profile', icon: User },
     { name: 'Support', path: '/support', icon: Headphones },
+  ];
+
+  const driverNavItems = [
+    { name: 'Driver Orders', path: '/driver-orders', icon: Truck },
+    { name: 'Driver Partner', path: '/driver-partner', icon: User },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -39,10 +44,10 @@ const Header = () => {
               For Enterprise
             </Link>
             <Link 
-              to="/driver-partner" 
+              to="/driver-orders" 
               className="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50 rounded-lg"
             >
-              Driver Partner
+              Driver Dashboard
             </Link>
             <Link 
               to="/support" 
@@ -109,19 +114,30 @@ const Header = () => {
             })}
             
             <div className="border-t border-gray-100 pt-4 mt-4 space-y-2">
+              {driverNavItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 ${
+                      isActive(item.path)
+                        ? 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 shadow-sm'
+                        : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Icon size={20} />
+                    <span className="font-medium">{item.name}</span>
+                  </Link>
+                );
+              })}
               <Link
                 to="/driver-partner"
                 className="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-all duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="font-medium">For Enterprise</span>
-              </Link>
-              <Link
-                to="/driver-partner"
-                className="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-all duration-300"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="font-medium">Driver Partner</span>
               </Link>
             </div>
           </div>

@@ -128,6 +128,67 @@ export const mockDrivers = [
   }
 ];
 
+// New mock data for driver orders
+export const mockDriverOrders = [
+  {
+    id: 'ORD001',
+    customerName: 'Rajesh Kumar',
+    customerPhone: '+91 98765 43210',
+    customerRating: 4.8,
+    pickupLocation: 'Connaught Place, New Delhi',
+    pickupCoordinates: { lat: 28.6315, lng: 77.2167 },
+    dropLocation: 'Gurgaon Sector 21, Haryana',
+    dropCoordinates: { lat: 28.4595, lng: 77.0266 },
+    service: 'Mini Truck',
+    estimatedDistance: '18 km',
+    estimatedTime: '35 mins',
+    fare: 450,
+    specialInstructions: 'Please call before arrival. Fragile items.',
+    requestTime: new Date(Date.now() - 2 * 60 * 1000), // 2 minutes ago
+    priority: 'normal',
+    goodsDescription: 'Household items - 2 boxes',
+    status: 'pending'
+  },
+  {
+    id: 'ORD002',
+    customerName: 'Priya Sharma',
+    customerPhone: '+91 98765 43211',
+    customerRating: 4.9,
+    pickupLocation: 'Khan Market, New Delhi',
+    pickupCoordinates: { lat: 28.5987, lng: 77.2319 },
+    dropLocation: 'Vasant Kunj, New Delhi',
+    dropCoordinates: { lat: 28.5244, lng: 77.1580 },
+    service: 'Two Wheeler',
+    estimatedDistance: '12 km',
+    estimatedTime: '25 mins',
+    fare: 80,
+    specialInstructions: 'Documents delivery - handle with care.',
+    requestTime: new Date(Date.now() - 1 * 60 * 1000), // 1 minute ago
+    priority: 'urgent',
+    goodsDescription: 'Important documents',
+    status: 'pending'
+  },
+  {
+    id: 'ORD003',
+    customerName: 'Amit Singh',
+    customerPhone: '+91 98765 43212',
+    customerRating: 4.6,
+    pickupLocation: 'Lajpat Nagar, New Delhi',
+    pickupCoordinates: { lat: 28.5677, lng: 77.2434 },
+    dropLocation: 'Noida Sector 62',
+    dropCoordinates: { lat: 28.6274, lng: 77.3731 },
+    service: 'Pickup Truck',
+    estimatedDistance: '22 km',
+    estimatedTime: '45 mins',
+    fare: 650,
+    specialInstructions: 'Office furniture - need help with loading.',
+    requestTime: new Date(Date.now() - 30 * 1000), // 30 seconds ago
+    priority: 'normal',
+    goodsDescription: 'Office furniture - 5 items',
+    status: 'pending'
+  }
+];
+
 export const mockUser = {
   id: 'U001',
   name: 'John Doe',
@@ -217,4 +278,8 @@ export const getBookingById = (id) => {
 
 export const getDriverById = (id) => {
   return mockDrivers.find(driver => driver.id === id);
+};
+
+export const getDriverOrderById = (id) => {
+  return mockDriverOrders.find(order => order.id === id);
 };
