@@ -72,11 +72,8 @@ const HomePage = () => {
   };
 
   const handleGetEstimate = () => {
-    if (selectedService) {
-      navigate('/book', { state: { selectedService, city: selectedCity } });
-    } else {
-      navigate('/book', { state: { city: selectedCity } });
-    }
+    const state = selectedService ? { selectedService, city: selectedCity } : { city: selectedCity };
+    navigate('/book', { state });
   };
 
   return (
