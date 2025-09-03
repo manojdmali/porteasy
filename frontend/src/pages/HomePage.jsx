@@ -68,7 +68,8 @@ const HomePage = () => {
 
   const handleServiceSelect = (service) => {
     setSelectedService(service);
-    navigate('/book', { state: { selectedService: service, city: selectedCity } });
+    const state = { selectedService: service, city: selectedCity };
+    navigate('/book', { state });
   };
 
   const handleGetEstimate = () => {
