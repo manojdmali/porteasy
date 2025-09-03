@@ -251,7 +251,19 @@ const HomePage = () => {
             {services.map((service) => (
               <div
                 key={service.id}
-                onClick={() => handleServiceSelect(service)}
+                onClick={() => {
+                  const serviceData = {
+                    id: service.id,
+                    name: service.name,
+                    description: service.description
+                  };
+                  navigate('/book', { 
+                    state: { 
+                      selectedService: serviceData, 
+                      city: selectedCity 
+                    } 
+                  });
+                }}
                 className={`group relative p-6 md:p-8 rounded-3xl text-white cursor-pointer transform hover:scale-105 transition-all duration-300 bg-gradient-to-br ${service.gradient} ${service.hoverGradient} shadow-xl hover:shadow-2xl`}
               >
                 <div className="space-y-4">
